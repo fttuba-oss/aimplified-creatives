@@ -3,6 +3,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Check, Menu, X } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/lib/supabase";
 
 const projects = [
   {
@@ -94,16 +95,33 @@ export default function Home() {
     setSubscribed(Boolean(window.localStorage.getItem("aimplified-subscriber")));
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const cleanEmail = email.trim();
     if (!/^\S+@\S+\.\S+$/.test(cleanEmail)) {
       toast.error("Please enter a valid email address.");
       return;
     }
-    window.localStorage.setItem("aimplified-subscriber", cleanEmail);
-    setSubscribed(true);
-    toast.success("You’re on the list. We’ll keep it thoughtful.");
+
+    const promise = (async () => {
+      const { error } = await supabase.from("subscribers").insert([{ email: cleanEmail }]);
+      if (error) {
+        throw new Error(error.message || "Failed to save subscription.");
+      }
+    })();
+
+    toast.promise(promise, {
+      loading: "Saving your subscription...",
+      success: () => {
+        window.localStorage.setItem("aimplified-subscriber", cleanEmail);
+        setSubscribed(true);
+        return "You’re on the list. We’ll keep it thoughtful.";
+      },
+      error: (err: any) => {
+        console.error("Supabase error:", err);
+        return err.message || "Failed to save subscription.";
+      },
+    });
   };
 
   const closeMenu = () => setMenuOpen(false);
