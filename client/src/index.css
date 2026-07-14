@@ -1,0 +1,441 @@
+/* THE LIVING SCORE: Absolute-ink monochrome, editorial asymmetry, musical spacing, and restrained motion. */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+}
+
+:root {
+  --radius: 0.125rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.145 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.145 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.48 0 0);
+  --accent: oklch(0.93 0 0);
+  --accent-foreground: oklch(0.145 0 0);
+  --destructive: oklch(0.42 0.15 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.84 0 0);
+  --input: oklch(0.84 0 0);
+  --ring: oklch(0.145 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: white;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Manrope", sans-serif;
+    margin: 0;
+  }
+
+  ::selection {
+    background: #0a0a0a;
+    color: #fff;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:active,
+  a:active {
+    transform: scale(0.97);
+  }
+}
+
+@layer components {
+  .site-shell {
+    width: min(100% - 2rem, 1440px);
+    margin-inline: auto;
+  }
+
+  .section-space {
+    padding-block: clamp(6rem, 10vw, 10rem);
+  }
+
+  .font-display {
+    font-family: "Cormorant Garamond", serif;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .wordmark:hover {
+    opacity: 0.7;
+  }
+
+  .wordmark > span {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+    font-size: 0.83rem;
+    letter-spacing: -0.035em;
+  }
+
+  .wordmark strong {
+    font-weight: 800;
+    letter-spacing: -0.08em;
+  }
+
+  .wordmark span span {
+    margin-left: 0.25rem;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.48;
+  }
+
+  .nav-link {
+    position: relative;
+    padding-block: 0.5rem;
+    font-size: 0.71rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0.15rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .icon-button {
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    background: white;
+    transition: background 180ms cubic-bezier(0.23, 1, 0.32, 1), color 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .icon-button:hover {
+    background: #0a0a0a;
+    color: white;
+  }
+
+  .hero-art {
+    position: absolute;
+    inset: 76px 0 0 38%;
+    background-image: linear-gradient(90deg, white 0%, rgba(255,255,255,0.35) 24%, rgba(255,255,255,0) 52%), url("/images/hero_score.png");
+    background-position: center;
+    background-size: cover;
+    opacity: 0.43;
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px);
+    background-size: 100% 4rem;
+    mix-blend-mode: multiply;
+  }
+
+  .eyebrow {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .display-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(4.1rem, 9vw, 9rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: 0.82;
+  }
+
+  .display-heading em,
+  .section-heading em {
+    font-weight: 400;
+  }
+
+  .section-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3.25rem, 5.7vw, 6.25rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.94;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-top: 1px solid currentColor;
+    padding-top: 0.8rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .body-large {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.62);
+  }
+
+  .text-link {
+    position: relative;
+    border-bottom: 1px solid #0a0a0a;
+    padding-bottom: 0.3rem;
+    font-size: 0.71rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: gap 180ms cubic-bezier(0.23, 1, 0.32, 1), opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .text-link:hover {
+    gap: 0.75rem;
+    opacity: 0.6;
+  }
+
+  .project-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 3.5rem);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    padding-block: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .project-number {
+    padding-top: 0.25rem;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+
+  .project-arrow {
+    position: absolute;
+    right: 0;
+    top: 3.5rem;
+    opacity: 0.25;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .project-row:hover .project-arrow {
+    opacity: 1;
+    transform: translate(3px, -3px);
+  }
+
+  .status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.65rem;
+    font-weight: 650;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .status-line span {
+    height: 0.42rem;
+    width: 0.42rem;
+    border-radius: 999px;
+    background: #0a0a0a;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.07);
+  }
+
+  .founder-card {
+    min-height: 30rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.75rem 0 3rem;
+  }
+
+  .signup-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    border-bottom: 1px solid #0a0a0a;
+  }
+
+  .signup-form input {
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    padding: 1.2rem 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    letter-spacing: -0.025em;
+    outline: none;
+  }
+
+  .signup-form input::placeholder {
+    color: rgba(0, 0, 0, 0.28);
+  }
+
+  .signup-form button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    align-self: center;
+    background: #0a0a0a;
+    color: white;
+    padding: 0.9rem 1.15rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    transition: background 180ms cubic-bezier(0.23, 1, 0.32, 1), color 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .signup-form button:hover {
+    background: #e8e8e5;
+    color: #0a0a0a;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-shell {
+    width: min(100% - 4rem, 1440px);
+  }
+
+  .founder-card {
+    padding: 1.75rem 3.5rem 3.5rem 0;
+  }
+
+  .founder-card + .founder-card {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 3.5rem;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-art {
+    inset: 76px 0 38% 16%;
+    opacity: 0.28;
+  }
+
+  .display-heading {
+    font-size: clamp(4rem, 19vw, 6.2rem);
+    max-width: 11ch;
+  }
+
+  .project-row {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .project-row > div:nth-child(2) {
+    grid-column: 2;
+  }
+
+  .project-row > div:nth-child(3) {
+    grid-column: 2;
+  }
+
+  .project-arrow {
+    top: 2.25rem;
+  }
+
+  .signup-form {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    border-bottom: 0;
+  }
+
+  .signup-form input {
+    border-bottom: 1px solid #0a0a0a;
+  }
+
+  .signup-form button {
+    justify-content: space-between;
+    padding: 1rem 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
