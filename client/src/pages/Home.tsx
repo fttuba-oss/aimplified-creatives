@@ -1,5 +1,6 @@
 // THE LIVING SCORE: An asymmetric monochrome editorial page where typography, rules, and whitespace create musical rhythm.
 import { FormEvent, useEffect, useState } from "react";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Check, Menu, X } from "lucide-react";
 import { toast } from "sonner";
@@ -333,6 +334,9 @@ export default function Home() {
               <p className="body-large">
                 At the Wind Bands Association of Singapore Symposium, participants will use four structured prompts to build a mobile-first School Band Hub with announcements, schedules, and resources—showing how educators can move from tool users to tool builders without needing to code.
               </p>
+              <Link href="/guide" className="btn-primary mt-6 w-full text-center text-xs">
+                View Prompt Guide →
+              </Link>
               <p className="mt-7 text-sm text-black/45">Hands-on workshop led by Francis Tan & Teck Chuan Lim, PhD</p>
             </div>
           </div>
