@@ -1,8 +1,6 @@
 {
-  "cleanUrls": true,
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/guide", "destination": "/index.html" },
-    { "source": "/(.*)", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
