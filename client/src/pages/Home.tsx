@@ -173,7 +173,7 @@ export default function Home() {
             >
               <p className="eyebrow mb-7">A creative studio for music education</p>
               <h1 className="display-heading max-w-[980px]">
-                The future music classroom will be shaped by <em>educators.</em>
+                The future music classroom will be shaped by <em>music educators.</em>
               </h1>
             </motion.div>
             <motion.div
@@ -185,8 +185,8 @@ export default function Home() {
               <p className="max-w-sm text-base leading-7 text-black/65">
                 We explore how emerging technology can help educators create more personal, adaptive, and imaginative ways to learn music.
               </p>
-              <a className="text-link mt-8 inline-flex items-center gap-2" href="#story">
-                Read the idea <ArrowDown size={15} />
+              <a className="btn-primary mt-8" href="#story">
+                Read our story <ArrowDown size={15} />
               </a>
             </motion.div>
           </div>
@@ -195,19 +195,56 @@ export default function Home() {
         <section id="story" className="section-space bg-white">
           <div className="site-shell grid grid-cols-1 gap-14 md:grid-cols-12">
             <div className="md:col-span-3">
-              <SectionLabel number="01">The premise</SectionLabel>
+              <SectionLabel number="01">Our story</SectionLabel>
             </div>
             <div className="md:col-span-8 md:col-start-5">
-              <h2 className="section-heading">
-                Every ensemble is different. Most tools are designed for an <em>average</em> classroom.
-              </h2>
-              <div className="mt-14 grid gap-8 border-t border-black/20 pt-7 sm:grid-cols-2">
-                <p className="body-large">
-                  Students learn at different speeds. Teachers adapt scores, prepare listening exercises, and create resources around limited rehearsal time.
-                </p>
-                <p className="body-large">
-                  Today, new tools can begin with a conversation. Educators can shape technology around the people in the room—not the other way around.
-                </p>
+              {/* Part 1: Why We Started */}
+              <div>
+                <span className="text-xs uppercase tracking-[0.16em] text-black/45">Why We Started</span>
+                <h2 className="section-heading mt-4">
+                  Every student deserves the chance to <em>thrive.</em>
+                </h2>
+                <div className="mt-8 border-t border-black/20 pt-7">
+                  <p className="body-large max-w-xl">
+                    We believe every student deserves a learning experience that is engaging, personalised, and inspiring. Yet many music educators face the same challenge: limited time, diverse learning needs, and finite resources.
+                  </p>
+                </div>
+              </div>
+
+              {/* Part 2: A classroom that changed everything */}
+              <div className="mt-16">
+                <h3 className="font-display text-2xl md:text-3xl font-medium">A classroom that changed everything.</h3>
+                <div className="mt-6 grid gap-8 border-t border-black/10 pt-6 sm:grid-cols-2">
+                  <p className="text-base leading-7 text-black/75">
+                    The idea for <strong>AI</strong>mplified Creatives began while leading a school band that could rehearse only once a week because of resource constraints. The students were eager and full of potential, but rehearsals were spent developing the fundamentals of performance technique and music literacy, leaving little opportunity for interpretation, ensemble playing, and artistic expression.
+                  </p>
+                  <p className="text-base leading-7 text-black/75">
+                    Whenever specialist tutors were available, everything changed. Students arrived better prepared, rehearsals became more musical, and teachers could focus on creativity instead of constant technical correction.
+                  </p>
+                </div>
+              </div>
+
+              {/* Part 3: The insight */}
+              <div className="mt-16">
+                <h3 className="font-display text-2xl md:text-3xl font-medium">The insight.</h3>
+                <div className="mt-6 border-t border-black/10 pt-6">
+                  <p className="body-large max-w-xl">
+                    The experience revealed a simple truth: personalised learning makes a remarkable difference, but it is difficult to deliver consistently. Most teachers cannot provide every student with individual guidance, and many schools cannot afford the additional support their students need.
+                  </p>
+                </div>
+              </div>
+
+              {/* Part 4: Our Solution */}
+              <div className="mt-20 border-t border-black/25 pt-12">
+                <span className="text-xs uppercase tracking-[0.16em] text-black/45">Our Solution</span>
+                <h2 className="section-heading mt-4">
+                  AIMplified Creatives exists to help <em>bridge that gap.</em>
+                </h2>
+                <div className="mt-8 border-t border-black/20 pt-7">
+                  <p className="body-large max-w-xl">
+                    We combine music pedagogy with AI to help educators personalise learning, create adaptive learning experiences, design engaging lessons, and extend meaningful learning beyond the classroom. Our goal is to amplify great teaching, giving every student more opportunities to learn, create, and grow, while giving educators more time to focus on what matters most: inspiring the next generation of musicians.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
