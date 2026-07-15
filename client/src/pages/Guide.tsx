@@ -236,10 +236,22 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
         <section className="mb-12 rounded-lg border border-black/10 bg-white p-6 md:p-8">
           <h2 className="text-xl font-bold">🚀 BEFORE YOU START</h2>
           <ol className="mt-4 list-decimal pl-5 space-y-2.5 text-sm text-black/75">
-            <li>Open a free vibe coding platform (e.g., Bolt.new, Replit, Lovable, v0.dev)</li>
+            <li>
+              Open{" "}
+              <a
+                href="https://app.base44.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900"
+              >
+                app.base44.com
+              </a>{" "}
+              — the vibe coding platform we're using today
+            </li>
+            <li>Sign in or create a free account</li>
             <li>Start a <strong>new project</strong></li>
             <li>Work through Prompts 1–4 in order</li>
-            <li>Use the customizable values in the fields above, or edit them directly after pasting.</li>
+            <li>Customise the fields above with your school's info, then copy &amp; paste directly into Base44</li>
           </ol>
         </section>
 
