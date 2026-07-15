@@ -36,7 +36,7 @@ const founders = [
     name: "Francis Tan",
     role: "Co-founder · Conductor, educator & learning-sciences researcher",
     image: "/images/francis_tan.jpeg",
-    note: "Francis Tan is Resident Conductor at the National University of Singapore Centre for the Arts and Academic Coordinator for NUS Arts-for-All. His work and research focus on learning sciences within music education, instrumental and ensemble pedagogy, and AI-assisted musical learning. At AImplified Creatives, he researches and develops creative technology and AI-assisted tools for personalised music learning, ensemble rehearsal, and creative work.",
+    note: "Francis Tan is Resident Conductor at the National University of Singapore Centre for the Arts and Academic Coordinator for NUS Arts-for-All. His work and research focus on learning sciences within music education, instrumental and ensemble pedagogy, and AI-assisted musical learning. At AIMplified Creatives, he researches and develops creative technology and AI-assisted tools for personalised music learning, ensemble rehearsal, and creative work.",
   },
   {
     number: "02",
@@ -78,10 +78,10 @@ function LogoIcon({ className = "h-9 w-9", inverted = false }: { className?: str
 
 function Wordmark({ inverted = false }: { inverted?: boolean }) {
   return (
-    <a href="#top" className="wordmark" aria-label="AImplified Creatives, home">
+    <a href="#top" className="wordmark" aria-label="AIMplified Creatives, home">
       <LogoIcon className="h-9 w-9" inverted={inverted} />
       <span className={inverted ? "text-white" : "text-black"}>
-        <strong>AI</strong>mplified <span>Creatives</span>
+        <strong>AI</strong>Mplified <span>Creatives</span>
       </span>
     </a>
   );
@@ -217,7 +217,7 @@ export default function Home() {
                 <h3 className="font-display text-2xl md:text-3xl font-medium">A classroom that changed everything.</h3>
                 <div className="mt-6 grid gap-8 border-t border-black/10 pt-6 sm:grid-cols-2">
                   <p className="text-base leading-7 text-black/75">
-                    The idea for <strong>AI</strong>mplified Creatives began while leading a school band that could rehearse only once a week because of resource constraints. The students were eager and full of potential, but rehearsals were spent developing the fundamentals of performance technique and music literacy, leaving little opportunity for interpretation, ensemble playing, and artistic expression.
+                    The idea for <strong>AI</strong>Mplified Creatives began while leading a school band that could rehearse only once a week because of resource constraints. The students were eager and full of potential, but rehearsals were spent developing the fundamentals of performance technique and music literacy, leaving little opportunity for interpretation, ensemble playing, and artistic expression.
                   </p>
                   <p className="text-base leading-7 text-black/75">
                     Whenever specialist tutors were available, everything changed. Students arrived better prepared, rehearsals became more musical, and teachers could focus on creativity instead of constant technical correction.
@@ -232,6 +232,20 @@ export default function Home() {
                   <p className="body-large max-w-xl">
                     The experience revealed a simple truth: personalised learning makes a remarkable difference, but it is difficult to deliver consistently. Most teachers cannot provide every student with individual guidance, and many schools cannot afford the additional support their students need.
                   </p>
+                </div>
+              </div>
+
+              {/* Story Visual Collage Block */}
+              <div className="mt-16 overflow-hidden border border-black/10 bg-zinc-50">
+                <img
+                  src="/images/our_story_collage.jpg"
+                  alt="Visual diary of band rehearsal challenges and the vision for personalized learning support"
+                  className="w-full h-auto object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="border-t border-black/5 px-4 py-3 bg-white text-right">
+                  <span className="text-[10px] uppercase tracking-[0.15em] text-black/45">
+                    Field Notes & Rehearsal Observations — AIMplified Creatives
+                  </span>
                 </div>
               </div>
 
@@ -353,7 +367,7 @@ export default function Home() {
                   Music first. Technology with <em>purpose.</em>
                 </h2>
                 <p className="mt-8 max-w-2xl text-lg leading-8 text-white/58">
-                  AImplified Creatives was started by two educators asking a practical question: how can technology give music teachers more time, more agency, and better ways to meet every learner?
+                  AIMplified Creatives was started by two educators asking a practical question: how can technology give music teachers more time, more agency, and better ways to meet every learner?
                 </p>
               </div>
             </div>
@@ -369,7 +383,7 @@ export default function Home() {
                           <img
                             src={founder.image}
                             alt={founder.name}
-                            className="h-full w-full object-cover filter grayscale contrast-[1.05] hover:grayscale-0 hover:contrast-100 transition-all duration-300"
+                            className="h-full w-full object-cover transition-all duration-300"
                           />
                         </div>
                       )}
@@ -392,7 +406,7 @@ export default function Home() {
               <SectionLabel number="05">Mailing list</SectionLabel>
             </div>
             <div className="md:col-span-7 md:col-start-5">
-              <p className="eyebrow mb-7">Follow AImplified Creatives</p>
+              <p className="eyebrow mb-7">Follow AIMplified Creatives</p>
               <h2 className="section-heading max-w-3xl">
                 Follow what we <em>build next.</em>
               </h2>
@@ -435,7 +449,7 @@ export default function Home() {
           <Wordmark />
           <div className="text-left text-xs leading-5 text-black/42 sm:text-right">
             <p>Shaping what music education might become.</p>
-            <p>© {new Date().getFullYear()} AImplified Creatives</p>
+            <p>© {new Date().getFullYear()} AIMplified Creatives</p>
           </div>
         </div>
       </footer>

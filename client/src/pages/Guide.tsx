@@ -442,7 +442,7 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
 
         {/* Footer */}
         <footer className="mt-20 border-t border-[#0a0a0a]/10 pt-8 text-center text-xs text-black/45">
-          <p>© {new Date().getFullYear()} AImplified Creatives. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} AIMplified Creatives. All rights reserved.</p>
           <p className="mt-2">Made for the Wind Bands Association of Singapore (WBAS) Symposium.</p>
         </footer>
       </div>
