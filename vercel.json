@@ -1,8 +1,8 @@
 {
   "cleanUrls": true,
-  "outputDirectory": "dist/public",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/guide", "destination": "/index.html" },
-    { "source": "/404", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" },
   ]
 }
