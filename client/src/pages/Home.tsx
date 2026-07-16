@@ -10,14 +10,14 @@ const projects = [
   {
     number: "01",
     title: "Score Octopus",
-    question: "Upload one master-score PDF. The system detects instruments and produces print-ready individual parts—turning hours of repetitive preparation into a simpler workflow.",
+    question: "Upload one master-score PDF. The system detects instruments and produces print-ready individual parts, turning hours of repetitive preparation into a simpler workflow.",
     status: "Working prototype",
     image: "/images/score_octopus.png",
   },
   {
     number: "02",
     title: "Musicianship Tools",
-    question: "A growing family of focused tools—including a MIDI score follower and rhythm trainer—designed to support independent practice beyond rehearsal.",
+    question: "A growing family of focused tools, including a MIDI score follower and rhythm trainer, designed to support independent practice beyond rehearsal.",
     status: "In development",
     image: "/images/score_follower_screenshot.jpeg",
   },
@@ -244,7 +244,7 @@ export default function Home() {
                 />
                 <div className="border-t border-black/5 px-4 py-3 bg-white text-right">
                   <span className="text-[10px] uppercase tracking-[0.15em] text-black/45">
-                    Field Notes & Rehearsal Observations — AIMplified Creatives
+                    Field Notes & Rehearsal Observations, AIMplified Creatives
                   </span>
                 </div>
               </div>
@@ -268,9 +268,6 @@ export default function Home() {
         <section className="bg-black py-10 text-white md:py-14">
           <div className="site-shell flex flex-col justify-between gap-8 md:flex-row md:items-center">
             <p className="font-display text-3xl leading-tight md:text-5xl">We discover. We test. We teach. We build.</p>
-            <p className="max-w-sm text-sm leading-6 text-white/58">
-              One experiment at a time—so educators can spend more time making music.
-            </p>
           </div>
         </section>
 
@@ -283,7 +280,7 @@ export default function Home() {
               <div className="md:col-span-8 md:col-start-5">
                 <h2 className="section-heading">Ideas moving from question to <em>working tool.</em></h2>
                 <p className="mt-7 max-w-xl text-base leading-7 text-black/58">
-                  Our work connects rehearsal preparation, independent practice, and meaningful feedback—always beginning with a real educational need.
+                  Our work always begins with a real educational need, and we will help find the best solution and build it.
                 </p>
               </div>
             </div>
@@ -346,7 +343,7 @@ export default function Home() {
             </div>
             <div className="md:col-span-3 md:col-start-10">
               <p className="body-large">
-                At the Wind Bands Association of Singapore Symposium, participants will use four structured prompts to build a mobile-first School Band Hub with announcements, schedules, and resources—showing how educators can move from tool users to tool builders without needing to code.
+                At the Wind Bands Association of Singapore Symposium, participants will use four structured prompts to build a mobile-first School Band Hub with announcements, schedules, and resources, showing how educators can move from tool users to tool builders without needing to code.
               </p>
               <Link href="/guide" className="btn-primary mt-6 w-full text-center text-xs">
                 View Prompt Guide →
@@ -411,7 +408,7 @@ export default function Home() {
                 Follow what we <em>build next.</em>
               </h2>
               <p className="mt-7 max-w-xl text-base leading-7 text-black/58">
-                Receive project updates, workshop announcements, and useful ideas at the meeting point of music education and technology. No noise—only something worth sharing.
+                Receive project updates, workshop announcements, and useful ideas at the meeting point of music education and technology. No noise, only something worth sharing.
               </p>
 
               {subscribed ? (
