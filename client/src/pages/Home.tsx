@@ -56,33 +56,14 @@ function SectionLabel({ number, children, inverted = false }: { number: string; 
   );
 }
 
-function LogoIcon({ className = "h-9 w-9", inverted = false }: { className?: string; inverted?: boolean }) {
-  const baseColor = inverted ? "text-white" : "text-black";
-  return (
-    <svg className={`${className} ${baseColor}`} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Main bold disc */}
-      <circle cx="45" cy="50" r="35" fill="currentColor" />
-      {/* Interrupted precise wave-like cut */}
-      <path
-        d="M 12 50 C 25 30, 35 70, 48 50 C 60 30, 70 70, 78 50"
-        stroke={inverted ? "#0a0a0a" : "white"}
-        strokeWidth="6"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* Small orbiting satellite dot */}
-      <circle cx="88" cy="35" r="7" fill="currentColor" />
-    </svg>
-  );
-}
-
 function Wordmark({ inverted = false }: { inverted?: boolean }) {
   return (
     <a href="#top" className="wordmark" aria-label="AIMplified Creatives, home">
-      <LogoIcon className="h-9 w-9" inverted={inverted} />
-      <span className={inverted ? "text-white" : "text-black"}>
-        <strong>AI</strong>Mplified <span>Creatives</span>
-      </span>
+      <img
+        src={inverted ? "/images/aimplified_creatives_logo_white.png" : "/images/aimplified_creatives_logo_black.png"}
+        alt="AIMplified Creatives"
+        className="h-9 w-auto object-contain"
+      />
     </a>
   );
 }
