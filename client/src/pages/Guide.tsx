@@ -243,6 +243,7 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             onCopy={handleCopy}
             copiedId={copiedId}
             customizedVariables={[`"${schoolName} Band Hub"`, `"${tagline}"`, primaryColor]}
+            image="/images/prompt_1_mockup.png"
           />
 
           {/* Prompt 2 */}
@@ -255,6 +256,7 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             text={prompt2Text}
             onCopy={handleCopy}
             copiedId={copiedId}
+            image="/images/prompt_2_mockup.png"
           />
 
           {/* Prompt 3 */}
@@ -303,6 +305,13 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
               </div>
             </div>
 
+            {/* Expected Mockup */}
+            <div className="mt-8 border border-[#0a0a0a]/10 rounded-lg overflow-hidden bg-[#fafaf8] max-w-[280px] mx-auto shadow-sm">
+              <div className="bg-zinc-100 px-3 py-1.5 border-b border-black/5 text-[9px] uppercase font-bold tracking-wider text-black/50 text-center">
+                Expected App Mockup (Option B)
+              </div>
+              <img src="/images/prompt_3_mockup.png" alt="Prompt 3 Mockup" className="w-full h-auto object-contain" />
+            </div>
           </section>
 
           {/* Prompt 4 */}
@@ -335,6 +344,7 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
               text={prompt4Text}
               onCopy={handleCopy}
               copiedId={copiedId}
+              image="/images/prompt_4_mockup.png"
             />
           </section>
 
@@ -348,6 +358,7 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             text={prompt5Text}
             onCopy={handleCopy}
             copiedId={copiedId}
+            image="/images/prompt_5_mockup.png"
           />
 
           {/* TROUBLESHOOTING */}
@@ -400,6 +411,7 @@ interface PromptCardProps {
   onCopy: (text: string, id: string) => void;
   copiedId: string | null;
   customizedVariables?: string[];
+  image?: string;
 }
 
 function PromptCard({
@@ -412,6 +424,7 @@ function PromptCard({
   onCopy,
   copiedId,
   customizedVariables = [],
+  image,
 }: PromptCardProps) {
   // Highlight customized terms visually inside the prompt text
   const renderHighlightedText = () => {
@@ -450,6 +463,16 @@ function PromptCard({
           {customizedVariables.length > 0 ? renderHighlightedText() : text}
         </pre>
       </div>
+
+      {/* Mockup Screenshot */}
+      {image && (
+        <div className="mt-6 border border-[#0a0a0a]/10 rounded-lg overflow-hidden bg-[#fafaf8] max-w-[280px] mx-auto shadow-sm">
+          <div className="bg-zinc-100 px-3 py-1.5 border-b border-black/5 text-[9px] uppercase font-bold tracking-wider text-black/50 text-center">
+            Expected App Mockup
+          </div>
+          <img src={image} alt={`${title || 'App'} Mockup`} className="w-full h-auto object-contain" />
+        </div>
+      )}
     </article>
   );
 }
