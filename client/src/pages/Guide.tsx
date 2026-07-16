@@ -7,8 +7,6 @@ export default function Guide() {
   const [schoolName, setSchoolName] = useState("Nanyang High School");
   const [tagline, setTagline] = useState("Your music, all in one place");
   const [primaryColor, setPrimaryColor] = useState("amber/gold (#F59E0B)");
-  const [customSection, setCustomSection] = useState("Sectionals");
-  
   // Toggle optional sections
   const [includeCharts, setIncludeCharts] = useState(true);
 
@@ -117,30 +115,7 @@ Use the same amber brand colour for section headers and active states.`;
 
 Keep everything consistent with the amber brand theme.`;
 
-  const customizePrompt1 = `Update the app for ${schoolName}:
-- School name: ${schoolName}
-- Tagline: ${tagline}  
-- Primary colour: ${primaryColor}
-- Update all headers, buttons, and active states to use this colour`;
 
-  const customizePrompt2 = `Add a new sub-section to Resources called "${customSection}".
-It should work the same as the Sheet Music section — a list of items with a title, category tag, and a link or file download.`;
-
-  const customizePrompt3 = `Populate the app with sample data for a school band:
-
-Announcements:
-- "Sectional rehearsal this Friday — all woodwinds 3–5pm, Room 4"
-- "Concert tickets now on sale — see link on school website"
-- "New sheet music uploaded: Flight of the Bumblebee"
-
-Schedule (3 upcoming rehearsals):
-- 24 July 2026, 3:00 PM, Rehearsal Room 1, Agenda: "Run Concert Programme, Section work on bar 34–56"
-- 27 July 2026, 2:00 PM, School Auditorium, Agenda: "Full Dress Rehearsal"
-- 30 July 2026, 3:00 PM, Rehearsal Room 1, Agenda: "Post-Concert Debrief"
-
-Resources:
-- 1 YouTube video: any band performance video
-- 2 sheet music items under "Full Band"`;
 
   const troubleshooting1 = `The app isn't displaying correctly on a mobile screen width (375px). 
 Fix any overflow issues, ensure all padding is at least 16px on sides, 
@@ -188,7 +163,7 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             Type your school's info below. The prompts in the boxes further down will **automatically update** in real-time. Students can copy the pre-filled prompts directly!
           </p>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-3">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-900/70" htmlFor="school">School Name</label>
               <input
@@ -217,16 +192,6 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
                 className="mt-1.5 w-full rounded-lg border border-amber-200 bg-white px-3.5 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
                 value={primaryColor}
                 onChange={(e) => setPrimaryColor(e.target.value)}
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-amber-900/70" htmlFor="section">Custom Section Name</label>
-              <input
-                id="section"
-                type="text"
-                className="mt-1.5 w-full rounded-lg border border-amber-200 bg-white px-3.5 py-2 text-sm focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
-                value={customSection}
-                onChange={(e) => setCustomSection(e.target.value)}
               />
             </div>
           </div>
@@ -263,9 +228,6 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
           <span className="flex items-center gap-1.5 rounded-full border border-yellow-500/20 bg-yellow-50 px-3 py-1 text-yellow-600">
             🟡 Optional Extensions
           </span>
-          <span className="flex items-center gap-1.5 rounded-full border border-green-500/20 bg-green-50 px-3 py-1 text-green-600">
-            🟢 Personal Customisations
-          </span>
         </div>
 
         {/* PROMPTS WORKFLOW */}
@@ -278,7 +240,6 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             title="App Shell & Identity"
             subtitle="Send this first. It sets the whole app structure up."
             text={prompt1Text}
-            teachingPoint="We set identity and layout FIRST before any features. This prevents having to restyle everything later. Notice we also define the 3 sections upfront — the AI will wire the navigation correctly from the start."
             onCopy={handleCopy}
             copiedId={copiedId}
             customizedVariables={[`"${schoolName} Band Hub"`, `"${tagline}"`, primaryColor]}
@@ -292,7 +253,6 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             title="Announcements Feed"
             subtitle="The simplest feature — good for warming up."
             text={prompt2Text}
-            teachingPoint="Collapsible cards are a classic mobile pattern — they show the right amount of info at the right time. The hidden admin link is a deliberate UX choice: admins know where to look, students don't see clutter."
             onCopy={handleCopy}
             copiedId={copiedId}
           />
@@ -343,9 +303,6 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
               </div>
             </div>
 
-            <div className="rounded-lg bg-zinc-100 p-4 text-xs leading-relaxed text-black/60">
-              <strong>Teaching point:</strong> Option A proves the best code is sometimes <em>no code</em> — linking to an existing system saves time. Option B teaches data definition: grouping inputs, selecting field types, and managing file uploads.
-            </div>
           </section>
 
           {/* Prompt 4 */}
@@ -376,7 +333,6 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
               title=""
               subtitle=""
               text={prompt4Text}
-              teachingPoint="The Resources section shows how one screen can hold multiple content types using tabs. Notice we defined 'Featured' as just a boolean flag on a resource — simple but powerful. The Charts block is truly optional: show participants how removing one paragraph from a prompt removes a whole feature cleanly."
               onCopy={handleCopy}
               copiedId={copiedId}
             />
@@ -390,38 +346,9 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
             title="Polish (Optional)"
             subtitle="Only if time allows. Improves loading states, empty states, and nav states."
             text={prompt5Text}
-            teachingPoint="Polishing loading states and empty states transforms a prototype into a product. It establishes user experience guardrails."
             onCopy={handleCopy}
             copiedId={copiedId}
           />
-
-          {/* CUSTOMISATIONS */}
-          <section className="space-y-6">
-            <div className="border-b border-[#0a0a0a]/10 pb-4">
-              <span className="rounded bg-green-600 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                🟢 CUSTOMISATIONS
-              </span>
-              <h2 className="mt-3 text-2xl font-bold">Individual Student Personalization</h2>
-              <p className="text-sm text-black/60">Help participants customize the theme, add categories, or inject mock data once the core app is running.</p>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-black/70 mb-2">1. Change School Colors and Identity</h3>
-                <PromptBox text={customizePrompt1} id="c1" onCopy={handleCopy} copiedId={copiedId} />
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-black/70 mb-2">2. Add Custom Resource Category</h3>
-                <PromptBox text={customizePrompt2} id="c2" onCopy={handleCopy} copiedId={copiedId} />
-              </div>
-
-              <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-black/70 mb-2">3. Inject Demo Band Data</h3>
-                <PromptBox text={customizePrompt3} id="c3" onCopy={handleCopy} copiedId={copiedId} />
-              </div>
-            </div>
-          </section>
 
           {/* TROUBLESHOOTING */}
           <section className="space-y-6">
@@ -470,7 +397,6 @@ interface PromptCardProps {
   title: string;
   subtitle: string;
   text: string;
-  teachingPoint: string;
   onCopy: (text: string, id: string) => void;
   copiedId: string | null;
   customizedVariables?: string[];
@@ -483,7 +409,6 @@ function PromptCard({
   title,
   subtitle,
   text,
-  teachingPoint,
   onCopy,
   copiedId,
   customizedVariables = [],
@@ -505,9 +430,9 @@ function PromptCard({
   return (
     <article className="group relative rounded-xl border border-black/10 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md">
       {badge && (
-        <span className={`inline-block rounded px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider ${badgeColor}`}>
-          {badge}
-        </span>
+          <span className={`inline-block rounded px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider ${badgeColor}`}>
+            {badge}
+          </span>
       )}
       {title && <h2 className="mt-4 text-2xl font-bold">{title}</h2>}
       {subtitle && <p className="mt-1 text-sm text-black/55">{subtitle}</p>}
@@ -524,11 +449,6 @@ function PromptCard({
         <pre className="h-64 overflow-y-auto rounded-lg bg-zinc-950 p-5 font-mono text-xs leading-relaxed text-zinc-100 whitespace-pre-wrap select-all">
           {customizedVariables.length > 0 ? renderHighlightedText() : text}
         </pre>
-      </div>
-
-      {/* Teaching Point */}
-      <div className="mt-4 border-l-2 border-zinc-300 pl-4 py-1 text-xs leading-relaxed text-black/60">
-        <strong>Teaching point:</strong> {teachingPoint}
       </div>
     </article>
   );
