@@ -378,45 +378,72 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="mailing-list" className="section-space bg-white">
+        <section id="mailing-list" className="section-space bg-white border-t border-black/10">
           <div className="site-shell grid grid-cols-1 gap-14 md:grid-cols-12">
             <div className="md:col-span-3">
-              <SectionLabel number="05">Mailing list</SectionLabel>
+              <SectionLabel number="05">Connect</SectionLabel>
             </div>
-            <div className="md:col-span-7 md:col-start-5">
-              <p className="eyebrow mb-7">Follow AIMplified Creatives</p>
-              <h2 className="section-heading max-w-3xl">
-                Follow what we <em>build next.</em>
+            <div className="md:col-span-8 md:col-start-5">
+              <span className="text-xs uppercase tracking-[0.16em] text-black/45">Let's build together</span>
+              <h2 className="section-heading mt-4">
+                AIMplified Creatives: Let's <em>build together!</em>
               </h2>
-              <p className="mt-7 max-w-xl text-base leading-7 text-black/58">
-                Receive project updates, workshop announcements, and useful ideas at the meeting point of music education and technology. No noise, only something worth sharing.
+              <p className="mt-8 max-w-xl text-base leading-7 text-black/58">
+                Want to use AI to power your own music education tools or enable custom solutions for your ensemble? We are here to help bridge your music education ideas to real world products.
               </p>
 
-              {subscribed ? (
-                <div className="mt-12 flex items-center gap-4 border-y border-black py-6" role="status">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white"><Check size={17} /></span>
-                  <div>
-                    <p className="font-medium">You’re part of the journey.</p>
-                    <p className="mt-1 text-sm text-black/50">We’ll write when there is something worth hearing.</p>
+              <div className="mt-16 grid gap-12 border-t border-black/15 pt-12 sm:grid-cols-2">
+                {/* Option 1: Reach out */}
+                <div>
+                  <h3 className="font-display text-2xl md:text-3xl font-medium">Reach out for custom projects.</h3>
+                  <p className="mt-4 text-sm leading-6 text-black/62 font-sans">
+                    Contact us for a consultation or to discuss custom EdTech solutions tailored for your ensemble or classroom.
+                  </p>
+                  <div className="mt-8">
+                    <a 
+                      href="mailto:aimplifiedcreatives@gmail.com" 
+                      className="inline-flex items-center gap-2 border-b border-black pb-1 text-xs font-bold uppercase tracking-wider text-black hover:opacity-60 transition-opacity"
+                    >
+                      Email us <ArrowUpRight size={14} />
+                    </a>
+                    <p className="mt-3 text-base font-semibold text-black break-all">aimplifiedcreatives@gmail.com</p>
                   </div>
                 </div>
-              ) : (
-                <form className="signup-form mt-12" onSubmit={handleSubmit} noValidate>
-                  <label htmlFor="email" className="sr-only">Email address</label>
-                  <input
-                    id="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="Your email address"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
-                  <button type="submit">
-                    Join the list <ArrowUpRight size={17} />
-                  </button>
-                </form>
-              )}
-              <p className="mt-4 text-xs leading-5 text-black/40">A considered note from time to time. Unsubscribe whenever you like.</p>
+
+                {/* Option 2: Join mailing list */}
+                <div>
+                  <h3 className="font-display text-2xl md:text-3xl font-medium">Join our mailing list.</h3>
+                  <p className="mt-4 text-sm leading-6 text-black/62 font-sans">
+                    Hear about product releases, updates, and become early adopters. No noise, only considered updates.
+                  </p>
+                  <div className="mt-8">
+                    {subscribed ? (
+                      <div className="flex items-center gap-3 border-y border-black py-4" role="status">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black text-white"><Check size={14} /></span>
+                        <div>
+                          <p className="font-medium text-sm">You’re part of the journey.</p>
+                          <p className="mt-0.5 text-xs text-black/50">We'll write when there is something worth hearing.</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <form className="signup-form" onSubmit={handleSubmit} noValidate>
+                        <label htmlFor="email" className="sr-only">Email address</label>
+                        <input
+                          id="email"
+                          type="email"
+                          autoComplete="email"
+                          placeholder="Your email address"
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
+                        />
+                        <button type="submit">
+                          Join <ArrowUpRight size={17} />
+                        </button>
+                      </form>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
