@@ -116,6 +116,7 @@ export default function Home() {
           <nav className="hidden items-center gap-9 md:flex" aria-label="Primary navigation">
             <a className="nav-link" href="#projects">Projects</a>
             <a className="nav-link" href="#founders">Founders</a>
+            <a className="nav-link" href="#contact">Contact</a>
             <a className="nav-link" href="#mailing-list">Mailing list</a>
           </nav>
           <button
@@ -137,6 +138,7 @@ export default function Home() {
             <div className="flex flex-col gap-5 font-medium">
               <a href="#projects" onClick={closeMenu}>Projects</a>
               <a href="#founders" onClick={closeMenu}>Founders</a>
+              <a href="#contact" onClick={closeMenu}>Contact</a>
               <a href="#mailing-list" onClick={closeMenu}>Mailing list</a>
             </div>
           </motion.nav>
@@ -394,7 +396,7 @@ export default function Home() {
 
               <div className="mt-16 grid gap-12 border-t border-black/15 pt-12 sm:grid-cols-2">
                 {/* Option 1: Reach out */}
-                <div>
+                <div id="contact">
                   <h3 className="font-display text-2xl md:text-3xl font-medium">Reach out for custom projects.</h3>
                   <p className="mt-4 text-sm leading-6 text-black/62 font-sans">
                     Contact us for a consultation or to discuss custom EdTech solutions tailored for your ensemble or classroom.
