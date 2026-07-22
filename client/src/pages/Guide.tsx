@@ -153,6 +153,32 @@ Extract the video ID and use: https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`
           </p>
         </header>
 
+        {/* Quick Access QR Code & URL spelling */}
+        <section className="mb-12 rounded-xl border border-[#0a0a0a]/10 bg-white p-8 shadow-sm flex flex-col items-center justify-center text-center gap-6">
+          <div className="relative p-4 bg-white border border-[#0a0a0a]/10 rounded-2xl shadow-sm">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Faimplified-creatives.vercel.app%2Fguide"
+              alt="QR Code to Guide webpage"
+              className="w-56 h-56 md:w-64 md:h-64 object-contain"
+            />
+          </div>
+          <div className="space-y-1">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-[#d97706] bg-[#f59e0b]/10 px-3 py-1 rounded-full">
+              Scan to follow along
+            </span>
+            <div className="pt-2">
+              <a
+                href="https://aimplified-creatives.vercel.app/guide"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-base md:text-lg font-bold text-black hover:underline hover:opacity-85 underline-offset-4 tracking-tight break-all"
+              >
+                https://aimplified-creatives.vercel.app/guide
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Interactive Customisation Control Panel */}
         <section className="mb-12 rounded-xl border border-amber-500/25 bg-amber-50/20 p-6 md:p-8">
           <div className="mb-6 flex items-center gap-2.5 border-b border-amber-200/50 pb-4">
